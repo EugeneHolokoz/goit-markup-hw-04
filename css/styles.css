@@ -12,10 +12,22 @@
     /* Background colors */
     --main-bcg-cl: #FFFFFF;
     --btn-bcg-cl: #2196F3;
+    --head-bcg-cl: #C4C4C4;
+    --overlay-cl: rgba(47, 48, 58, 0.4);
+    --footer-icon-bcg-cl: rgba(255, 255, 255, 0.1);
     --black-bcg-cl: #2F303A;
     --light-bcg-cl: #F5F4FA;
     --border-first-cl: #ECECEC;
     --border-secondary-cl: #EEEEEE;
+    --icon-cl: #AFB1B8;
+    --box-shadow-blc-cl-20: rgba(0, 0, 0, 0.20);
+    --box-shadow-blc-cl-16: rgba(0, 0, 0, 0.16);
+    --box-shadow-blc-cl-15: rgba(0, 0, 0, 0.15);
+    --box-shadow-blc-cl-14: rgba(0, 0, 0, 0.14);
+    --box-shadow-blc-cl-12: rgba(0, 0, 0, 0.12);
+    --box-shadow-blc-cl-10: rgba(0, 0, 0, 0.10);
+    --box-shadow-blc-cl-08: rgba(0, 0, 0, 0.08);
+    --box-shadow-blc-cl-06: rgba(0, 0, 0, 0.06);
     /* Others */
     --btn-radius: 4px;
     --items: 3;
@@ -131,8 +143,13 @@ img {
     color: var(--grey-txt-cl);
     padding-top: 32px;
     padding-bottom: 32px;
-    display: block;
+    display: flex;
     align-items: center;
+    gap: 10px;
+}
+
+.contacts-icon {
+    fill: currentColor;
 }
 
 /* Main */
@@ -148,7 +165,21 @@ img {
     padding-top: 200px;
     padding-bottom: 200px;
     text-align: center;
-    background-color: var(--black-bcg-cl);
+    background-color: var(--head-bcg-cl);
+}
+
+.overlay {
+    max-width: 1600px;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: linear-gradient( to right, 
+    var(--overlay-cl),
+    var(--overlay-cl)),
+    url(../images/head_bckg/bckg_img.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .head-title {
@@ -177,7 +208,7 @@ img {
     color: var(--light-txt-cl);
     background-color: var(--btn-bcg-cl);
     cursor: pointer;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 4px 4px var(--box-shadow-blc-cl-15);
     border-radius: var(--btn-radius);
 
 }
@@ -187,6 +218,17 @@ img {
 .features-list {
     display: flex;
     gap: 30px;
+}
+
+.features-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 270px;
+    height: 120px;
+    border-radius: 4px;
+    background-color: var(--light-bcg-cl);
+    margin-bottom: 30px;
 }
 
 .portfolio-title,
@@ -257,14 +299,14 @@ img {
 }
 
 .team-list-item {
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 3px var(--box-shadow-blc-cl-12), 0px 1px 1px var(--box-shadow-blc-cl-14), 0px 2px 1px var(--box-shadow-blc-cl-20);
     border-bottom-left-radius: var(--btn-radius);
     border-bottom-right-radius: var(--btn-radius);
 }
 
 .team-description {
     padding-top: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 16px;
     text-align: center;
 }
 
@@ -284,12 +326,93 @@ img {
     color: var(--grey-txt-cl);
 }
 
+.socials {
+    display:flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    width: 44px;
+    height: 44px;
+    background-color: var(--light-txt-cl);
+    border-radius: 50%;
+}
+
+.social-link:hover, .social-link:focus {
+    background-color: var(--accent-txt-cl);
+}
+
+.social-icon {
+    fill: var(--icon-cl);
+}
+
+.social-link:hover .social-icon,
+.social-link:focus .social-icon{
+    fill: var(--light-txt-cl);
+    background-color: var(--accent-txt-cl);
+}
+
+/* Regular customers */
+
+.customers-title {
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: calc(42 / 36);
+    letter-spacing: 0.03em;
+}
+
+.customers-list {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.customers-list-item {
+    border: 1px solid var(--icon-cl);
+    border-radius: 4px;
+}
+
+.customers-list-item:hover,
+.customers-list-item:focus {
+    border-color: var(--accent-txt-cl);
+}
+
+.customers-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 170px;
+    height: 92px;
+}
+
+.customers-icon {
+    fill: var(--icon-cl);
+}
+
+.customers-list-item:hover .customers-icon,
+.customers-list-item:focus .customers-icon {
+    fill: var(--accent-txt-cl);
+}
+
 /* Footer */
 
 .footer {
     padding-top: 60px;
     padding-bottom: 60px;
     background-color: var(--black-bcg-cl);
+}
+
+.footer-container {
+    display: flex;
+    gap: 70px;
+    align-items: baseline;
 }
 
 .footer-logo {
@@ -304,11 +427,11 @@ img {
     color: var(--light-txt-cl);
 }
 
-.footer .list-item {
+.footer-list-item {
     margin-bottom: 9px;
 }
 
-.footer .list-item:last-child {
+.footer-list-item:last-child {
     margin-bottom: 0;
 }
 
@@ -329,6 +452,36 @@ img {
 .address .link:focus {
     color: var(--accent-txt-cl);
 }
+
+.logo-adress-socials-title {
+    margin-bottom: 20px;
+    color: var(--light-txt-cl);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: calc(16 / 14);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.social-link-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: var(--footer-icon-bcg-cl);
+    border-radius: 50%;
+}
+
+.social-icon-footer {
+    fill: var(--light-txt-cl);
+}
+
+.social-link-footer:hover,
+.social-link-footer:focus {
+    background-color: var(--accent-txt-cl);
+}
+
 
 /* Portfolio */
 
@@ -359,7 +512,9 @@ img {
 .section .btn:focus {
     color: var(--light-txt-cl);
     background-color: var(--btn-bcg-cl);
+    box-shadow: 0px 3px 1px var(--box-shadow-blc-cl-10), 0px 1px 2px var(--box-shadow-blc-cl-08), 0px 2px 2px var(--box-shadow-blc-cl-12);
 }
+
 
 .portfolio-list {
     display: flex;
@@ -369,6 +524,16 @@ img {
 
 .portfolio-item {
     flex-basis: calc((100% - var(--indent) * (var(--items) - 1)) / var(--items));
+}
+
+.portfolio-item-link {
+    display: block;
+    text-decoration: none;
+    color: currentColor;
+}
+
+.portfolio-item-link:hover, .portfolio-item-link:focus {
+    box-shadow: 0px 1px 1px var(--box-shadow-blc-cl-12), 0px 4px 4px var(--box-shadow-blc-cl-06), 1px 4px 6px var(--box-shadow-blc-cl-16);
 }
 
 .img-descr {
